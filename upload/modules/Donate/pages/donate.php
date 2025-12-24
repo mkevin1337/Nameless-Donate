@@ -11,7 +11,7 @@
 
 // Always define page name
 define('PAGE', 'donate');
-$page_title = 'Donate';
+$page_title = $donate_language->get('general', 'donate_title');
 require_once(ROOT_PATH . '/core/templates/frontend_init.php');
 $timeago = new TimeAgo(TIMEZONE);
 

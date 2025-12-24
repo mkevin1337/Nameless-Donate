@@ -104,21 +104,21 @@ class Donate_Module extends Module {
         switch ($link_location) {
             case 1:
                 // Navbar
-                $navs[0]->add('donate', $this->_donate_language->get('general', 'donate'), URL::build('/donate'), 'top', null, $order, $icon);
+                $navs[0]->add('donate', $this->_donate_language->get('general', 'donate_name_category'), URL::build('/donate'), 'top', null, $order, $icon);
             break;
             case 2:
                 // "More" dropdown
-                $navs[0]->addItemToDropdown('more_dropdown', 'donate', $this->_donate_language->get('general', 'donate'), URL::build('/donate'), 'top', null, $icon, $order);
+                $navs[0]->addItemToDropdown('more_dropdown', 'donate', $this->_donate_language->get('general', 'donate_name_category'), URL::build('/donate'), 'top', null, $icon, $order);
             break;
             case 3:
                 // Footer
-                $navs[0]->add('donate', $this->_donate_language->get('general', 'donate'), URL::build('/donate'), 'footer', null, $order, $icon);
+                $navs[0]->add('donate', $this->_donate_language->get('general', 'donate_name_category'), URL::build('/donate'), 'footer', null, $order, $icon);
             break;
         }
 
         if (defined('BACK_END')) {
             // Define permissions which belong to this module
-            PermissionHandler::registerPermissions($this->_donate_language->get('general', 'donate'), [
+            PermissionHandler::registerPermissions($this->_donate_language->get('general', 'donate_name_category'), [
                 'staffcp.donate.settings' => $this->_donate_language->get('admin', 'staffcp_donate_settings'),
                 'staffcp.donate.payments' => $this->_donate_language->get('admin', 'staffcp_donate_payments')
             ]);
@@ -132,7 +132,7 @@ class Donate_Module extends Module {
                     $order = $cache->retrieve('donate_order');
                 }
 
-                $navs[2]->add('donate_divider', mb_strtoupper($this->_donate_language->get('general', 'donate')), 'divider', 'top', null, $order, '');
+                $navs[2]->add('donate_divider', mb_strtoupper($this->_donate_language->get('general', 'donate_name_category')), 'divider', 'top', null, $order, '');
                 
                 if ($user->hasPermission('staffcp.donate.settings')) {
                     if (!$cache->isCached('donate_settings_icon')) {
